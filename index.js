@@ -1,7 +1,7 @@
 // import express from "express";
 const express = require('express');
 const cors = require('cors');
-const dbConnection = require('./database/config');
+const dbConnection = require('./src/database/config');
 require('dotenv').config();
 
 // Raise the server
@@ -20,9 +20,9 @@ app.use(express.static('public'));
 app.use(express.json());
 
 // Routes
-app.use('/api/auth', require('./routes/auth'));
+app.use('/api/auth', require('./src/routes/auth'));
 
-app.use('/api/events', require('./routes/events'));
+app.use('/api/events', require('./src/routes/events'));
 
 // Listening requests
 app.listen(process.env.PORT, () => {
