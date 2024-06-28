@@ -1,5 +1,5 @@
 /*
-  User Routes path
+  User Routes path:
   host + api/auth
 */
 
