@@ -9,7 +9,7 @@ const eventValidations = [
     .isLength({ min: 2, max: 30 })
     .withMessage('Must have min 2 & max 30 characters'),
 
-  check('description')
+  check('note')
     .notEmpty()
     .withMessage('Mandatory field')
     .isLength({ min: 10 })
