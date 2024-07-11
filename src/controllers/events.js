@@ -96,7 +96,7 @@ const deleteEvent = async (req, res) => {
 
     if (!event) {
       return res.status(404).json({
-        ok: true,
+        ok: false,
         msg: 'Event not found ❌',
       });
     }
@@ -108,17 +108,10 @@ const deleteEvent = async (req, res) => {
       });
     }
 
-    const deletedEvent = await Event.findByIdAndDelete(eventId);
+    await Event.findByIdAndDelete(eventId);
 
-    if (deleteEvent) {
-      return res.json({
-        ok: true,
-        eventDeleted: deletedEvent,
-      });
-    }
-    return res.json({
-      ok: false,
-      msg: 'An error has occurred in the delete process',
+    res.json({
+      ok: true,
     });
   } catch (error) {
     console.log(error);
