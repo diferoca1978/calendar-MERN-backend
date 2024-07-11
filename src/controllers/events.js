@@ -89,6 +89,7 @@ const updateEvent = async (req, res) => {
 // Delete an event
 const deleteEvent = async (req, res) => {
   const eventId = req.params.id;
+  const uid = req.uid;
 
   try {
     const event = await Event.findById(eventId);
@@ -100,10 +101,10 @@ const deleteEvent = async (req, res) => {
       });
     }
 
-    if (event.user.toString() !== req.uid) {
+    if (event.user.toString() !== uid) {
       return res.status(401).json({
         ok: false,
-        msg: 'Unauthorized to make changes 🙊',
+        msg: 'Unauthorized to delete this event 🙊',
       });
     }
 
