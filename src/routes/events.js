@@ -21,6 +21,6 @@ router.use(validateJWT);
 router.get('/', getEvents);
 router.post('/', [eventValidations], createEvent);
 router.put('/:id', [eventValidations], updateEvent);
-router.post('/delete/:id', deleteEvent);
+router.delete('/delete/:id', deleteEvent);
 
 module.exports = router;
