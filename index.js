@@ -1,5 +1,6 @@
 // import express from "express";
 const express = require('express');
+const path = require('path');
 const cors = require('cors');
 const dbConnection = require('./src/database/config');
 require('dotenv').config();
@@ -23,6 +24,11 @@ app.use(express.json());
 app.use('/api/auth', require('./src/routes/auth'));
 
 app.use('/api/events', require('./src/routes/events'));
+
+// Serv the content that there is in the index.html file which content the web page from react
+app.use('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public/index.html'));
+});
 
 // Listening requests
 app.listen(process.env.PORT, () => {
