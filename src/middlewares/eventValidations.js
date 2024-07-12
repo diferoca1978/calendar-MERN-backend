@@ -12,7 +12,7 @@ const eventValidations = [
   check('note')
     .notEmpty()
     .withMessage('Mandatory field')
-    .isLength({ min: 10 })
+    .isLength({ min: 10, max: 100 })
     .withMessage('Must have min 10 characters'),
 
   check('start').notEmpty().withMessage('Mandatory field').custom(isDate),
